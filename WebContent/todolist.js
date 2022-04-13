@@ -29,7 +29,7 @@ function init() {
     }
 
 	//Adds group in the list
-    $.post("add", function(responseJson) {
+    $.post("getList", function(responseJson) {
         var grouplist = document.getElementById('grouplist');
         $.each(responseJson, function(key, value) {
             createNewGroupLi(grouplist, value);

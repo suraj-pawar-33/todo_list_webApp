@@ -37,8 +37,8 @@
   </servlet>
   
   <servlet-mapping>
-      <servlet-name>AddServlet</servlet-name>
-      <url-pattern>/add</url-pattern>
+      <servlet-name>GetListServlet</servlet-name>
+      <url-pattern>/getList</url-pattern>
   </servlet-mapping>
   
     <servlet>
