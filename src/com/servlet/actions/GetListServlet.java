@@ -1,4 +1,4 @@
-package com.database.mysql.actions;
+package com.servlet.actions;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -9,13 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.database.mysql.actions.ActionUtilities;
+import com.database.mysql.actions.SqlConstants;
 
 /*
  * Finds and posts group names
  */
 public class GetListServlet extends HttpServlet {
+	/** Logger */
+	private static final Log LOGGER = LogFactory.getLog(GetListServlet.class);
 
 	
 	private static final long serialVersionUID = 1L;
@@ -39,7 +46,7 @@ public class GetListServlet extends HttpServlet {
 				response.getWriter().write(json);
 			} catch (SQLException | JSONException e) {
 				System.out.println(e + " ERROR in AddServlet");
-//				e.printStackTrace();
+				LOGGER.error(e.getLocalizedMessage());
 			} finally {
 				SqlConstants.closeConnection();
 			}

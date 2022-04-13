@@ -12,7 +12,7 @@
   
   <servlet>
       <servlet-name>LoginServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.LoginServlet</servlet-class>
+      <servlet-class>com.servlet.actions.LoginServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -23,7 +23,7 @@
   
   <servlet>
       <servlet-name>TodoListServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.TodoListServlet</servlet-class>
+      <servlet-class>com.servlet.actions.TodoListServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -33,7 +33,7 @@
   
   <servlet>
       <servlet-name>GetListServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.GetListServlet</servlet-class>
+      <servlet-class>com.servlet.actions.GetListServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -43,7 +43,7 @@
   
     <servlet>
       <servlet-name>TodoServelet</servlet-name>
-      <servlet-class>com.database.mysql.actions.TodoServelet</servlet-class>
+      <servlet-class>com.servlet.actions.TodoServelet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -53,7 +53,7 @@
   
   <servlet>
       <servlet-name>SaveTodoServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.SaveTodoServlet</servlet-class>
+      <servlet-class>com.servlet.actions.SaveTodoServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -63,7 +63,7 @@
   
   <servlet>
       <servlet-name>DeleteNoteServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.DeleteNoteServlet</servlet-class>
+      <servlet-class>com.servlet.actions.DeleteNoteServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -73,7 +73,7 @@
   
    <servlet>
       <servlet-name>CheckNoteServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.CheckNoteServlet</servlet-class>
+      <servlet-class>com.servlet.actions.CheckNoteServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -83,7 +83,7 @@
   
      <servlet>
       <servlet-name>DeleteListServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.DeleteListServlet</servlet-class>
+      <servlet-class>com.servlet.actions.DeleteListServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -93,7 +93,7 @@
   
    <servlet>
       <servlet-name>NewListServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.NewListServlet</servlet-class>
+      <servlet-class>com.servlet.actions.NewListServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>

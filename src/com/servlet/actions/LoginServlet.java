@@ -1,4 +1,4 @@
-package com.database.mysql.actions;
+package com.servlet.actions;
 
 import java.io.IOException;
 
@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.database.mysql.actions.ActionUtilities;
 
 public class LoginServlet extends HttpServlet{
 

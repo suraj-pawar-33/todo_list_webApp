@@ -1,4 +1,4 @@
-package com.database.mysql.actions;
+package com.servlet.actions;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.database.mysql.actions.ActionUtilities;
 
 /**
  * Set the todo to checked

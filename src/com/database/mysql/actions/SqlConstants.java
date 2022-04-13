@@ -5,8 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 
 public class SqlConstants {
+	/** Logger */
+	private static final Log LOGGER = LogFactory.getLog(SqlConstants.class);
 
 	private static Connection connection;
 	
@@ -18,7 +23,7 @@ public class SqlConstants {
 			statement = connection.createStatement();
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in getStatement()");
-//			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 		}
 		return statement;
 		
@@ -32,7 +37,7 @@ public class SqlConstants {
 			connection = DriverManager.getConnection(connectionUrl, "suraj", "suraj");
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println(e + " ERROR in createConnection()");
-//			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 		}
 		return connection;
 	}
@@ -42,6 +47,7 @@ public class SqlConstants {
 			connection.close();
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in closeConnection()");
+			LOGGER.error(e.getLocalizedMessage());
 		}
 	}
 }

@@ -4,7 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class ActionUtilities {
+	/** Logger */
+	private static final Log LOGGER = LogFactory.getLog(ActionUtilities.class);
 
 	public static boolean validateUser(String username, String password) {
 		String sqlQuery = "select * from service_users where user_id='" + username + "' and user_pass='" + password
@@ -17,7 +22,7 @@ public class ActionUtilities {
 			hasNext = resultSet == null ? false : resultSet.next();
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in validateUser");
-			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 			return false;
 		} finally {
 			SqlConstants.closeConnection();
@@ -41,7 +46,7 @@ public class ActionUtilities {
 			resultSet = statement.executeQuery(sqlQuery.toString());
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in getGroupNames");
-//			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 		}
 
 		return resultSet;
@@ -62,7 +67,7 @@ public class ActionUtilities {
 			resultSet = statement.executeQuery(sqlQuery.toString());
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in getGroupNotes");
-			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 		}
 
 		return resultSet;
@@ -87,7 +92,7 @@ public class ActionUtilities {
 				resultSet = statement.executeUpdate(sqlQuery.toString());
 			} catch (SQLException e) {
 				System.out.println(e + " ERROR in saveNote");
-				e.printStackTrace();
+				LOGGER.error(e.getLocalizedMessage());
 			} finally {
 				SqlConstants.closeConnection();
 			}
@@ -112,7 +117,7 @@ public class ActionUtilities {
 			}
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in getGroupid");
-			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 		} finally {
 			SqlConstants.closeConnection();
 		}
@@ -139,7 +144,7 @@ public class ActionUtilities {
 				resultSet = statement.executeUpdate(sqlQuery.toString());
 			} catch (SQLException e) {
 				System.out.println(e + " ERROR in deleteNote");
-				e.printStackTrace();
+				LOGGER.error(e.getLocalizedMessage());
 			} finally {
 				SqlConstants.closeConnection();
 			}
@@ -169,7 +174,7 @@ public class ActionUtilities {
 				resultSet = statement.executeUpdate(sqlQuery.toString());
 			} catch (SQLException e) {
 				System.out.println(e + " ERROR in deleteNote");
-				e.printStackTrace();
+				LOGGER.error(e.getLocalizedMessage());
 			} finally {
 				SqlConstants.closeConnection();
 			}
@@ -195,7 +200,7 @@ public class ActionUtilities {
 			resultSet = statement.executeUpdate(sqlQuery.toString());
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in deleteGroup");
-			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 		} finally {
 			SqlConstants.closeConnection();
 		}
@@ -222,7 +227,7 @@ public class ActionUtilities {
 				resultSet = statement.executeUpdate(sqlQuery.toString());
 			} catch (SQLException e) {
 				System.out.println(e + " ERROR in createNewGroup");
-				e.printStackTrace();
+				LOGGER.error(e.getLocalizedMessage());
 			} finally {
 				SqlConstants.closeConnection();
 			}
@@ -252,7 +257,7 @@ public class ActionUtilities {
 			}
 		} catch (SQLException e) {
 			System.out.println(e + " ERROR in getUserId");
-			e.printStackTrace();
+			LOGGER.error(e.getLocalizedMessage());
 		} finally {
 			SqlConstants.closeConnection();
 		}
@@ -284,7 +289,7 @@ public class ActionUtilities {
 				resultSet = statement.executeUpdate(sqlQuery.toString());
 			} catch (SQLException e) {
 				System.out.println(e + " ERROR in saveNote");
-				e.printStackTrace();
+				LOGGER.error(e.getLocalizedMessage());
 			} finally {
 				SqlConstants.closeConnection();
 			}
