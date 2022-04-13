@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class NewGroupServlet extends HttpServlet{
+public class NewListServlet extends HttpServlet{
 
 	/**
 	 * New group of notes

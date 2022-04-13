@@ -13,7 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /*
- * Saves Todos in the server
+ * Saves Todos in the database
  * 
  */
 public class SaveTodoServlet extends HttpServlet{

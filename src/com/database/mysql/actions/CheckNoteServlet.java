@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Set the todo to checked
+ * @author spawar
+ *
+ */
 public class CheckNoteServlet extends HttpServlet{
 
 	/**

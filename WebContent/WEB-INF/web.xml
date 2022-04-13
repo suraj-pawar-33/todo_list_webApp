@@ -32,8 +32,8 @@
   </servlet-mapping>
   
   <servlet>
-      <servlet-name>AddServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.AddServlet</servlet-class>
+      <servlet-name>GetListServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.GetListServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -82,22 +82,22 @@
   </servlet-mapping>
   
      <servlet>
-      <servlet-name>DeleteGroupServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.DeleteGroupServlet</servlet-class>
+      <servlet-name>DeleteListServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.DeleteListServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-      <servlet-name>DeleteGroupServlet</servlet-name>
+      <servlet-name>DeleteListServlet</servlet-name>
       <url-pattern>/deletegroup</url-pattern>
   </servlet-mapping>
   
    <servlet>
-      <servlet-name>NewGroupServlet</servlet-name>
-      <servlet-class>com.database.mysql.actions.NewGroupServlet</servlet-class>
+      <servlet-name>NewListServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.NewListServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-      <servlet-name>NewGroupServlet</servlet-name>
+      <servlet-name>NewListServlet</servlet-name>
       <url-pattern>/newgroup</url-pattern>
   </servlet-mapping>
   
