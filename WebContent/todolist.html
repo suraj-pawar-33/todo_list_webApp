@@ -1,0 +1,249 @@
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>TO DO LIST</title>
+
+<script
+	src="jquery_mine.js">
+</script>
+
+</head>
+<style>
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	background: white;
+	border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #ffc266;
+	border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #b35900;
+}
+
+.wrapper {
+	width: 70%;
+	height: auto;
+	background-color: #cc6600;
+	margin: 0px auto;
+	padding: 5px;
+	display: flex;
+}
+
+#element {
+	width: 100%;
+	margin-top: 20px;
+	height: 25px;
+	font-size: 20px;
+}
+
+#list li {
+	display: flex;
+	margin-top: 2px;
+	padding: 3px;
+	font-size: 30px;
+}
+
+#list div {
+	flex: 5;
+	margin: 0px 20px 0px 20px;
+	padding: 3px 10px 3px 10px;
+	background-color: white;
+	border-radius: 10px;
+	overflow: auto;
+}
+
+#list span {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background-color: white;
+	text-align: center;
+	padding-bottom: 3px;
+	color: #cc6600;
+}
+
+#list span:hover {
+	cursor: pointer;
+	background-color: #cc6600;
+	color: white;
+}
+
+.btn {
+	padding: 10px;
+	background-color: #cc6600;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	margin-top: 20px;
+	border: 0px;
+	outline: none;
+}
+
+.btn:hover {
+	background-color: #b35900;
+	cursor: pointer;
+}
+
+
+
+#new-btn{
+	float: right;
+}
+#grouplist li {
+	display: flex;
+	margin-top: 2px;
+	padding: 10px;
+	font-size: 20px;
+	border: 0px;
+	border-radius: 8px;
+}
+
+#grouplist p:hover {
+	cursor: pointer;
+}
+
+#grouplist p {
+	flex: 5;
+	margin: 0px 20px 0px 20px;
+	padding: 3px 10px 3px 10px;
+	border-radius: 10px;
+	overflow: auto;
+}
+
+#grouplist span {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	background-color: white;
+	text-align: center;
+	padding-bottom: 3px;
+	color: #cc6600;
+}
+
+#grouplist span:hover {
+	cursor: pointer;
+	background-color: #cc6600;
+	color: white;
+}
+
+#new-btn-div{
+	height: 40px;
+}
+
+.grp-selected {
+	background-color: #b35900;
+	color: white;
+}
+
+.small_btn {
+	padding: 5px 8px 5px 8px;
+	margin: 5px;
+	background-color: #cc6600;
+	font-size: 13px;
+	color: white;
+	margin-left: 20px;
+	border: 0px;
+	border-radius: 8px;
+	outline: none;
+	border-bottom: 1px solid gray;
+	border-left: 1px solid gray;
+}
+
+.small_btn:hover {
+	background-color: #b35900;
+	cursor: pointer;
+}
+
+.small_btn:active {
+	border: 0px;
+}
+
+.bar {
+	height: 37px;
+	width: 100%;
+	border-bottom: 2px solid black;
+}
+
+.inner {
+	padding: 3%;
+}
+
+.list_div {
+	overflow-y: scroll;
+	height: 500px;
+	width: 94%;
+	font-size: 20px;
+}
+
+.left {
+	flex: 2;
+	background-color: white;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.right {
+	flex: 4;
+	background-color: #ffc266;
+}
+
+@media ( max-width :800px) {
+	.wrapper {
+		flex-direction: column;
+	}
+}
+</style>
+
+
+<body>
+
+	<div class="wrapper">
+		<div class="inner left">
+			<div class="firstRow">
+				<label>To Do</label> <input id="element" name="element">
+				<button id="add-btn" class="btn" type="submit">Add</button>
+			</div>
+			<div id="new-btn-div" class="secondRow">
+				<button id="new-btn" class="small_btn" type="submit">New
+					Group</button>
+			</div>
+			<div id="groupdiv" class="inner list_div">
+				<ul id="grouplist">
+
+				</ul>
+			</div>
+		</div>
+		<div class="right">
+			<div class="bar">
+				<button id="sort" title="alphabetical order" class="small_btn">
+					&#8639&#8642 Sort</button>
+
+			</div>
+			<div class=" inner list_div">
+				<ul id="list">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<script src="todolist.js"></script>
+
+</body>
+</html>

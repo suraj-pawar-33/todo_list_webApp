@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>DemoWebProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+      <servlet-name>LoginServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>LoginServlet</servlet-name>
+      <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+      <servlet-name>TodoListServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.TodoListServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>TodoListServlet</servlet-name>
+      <url-pattern>/todolist</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>AddServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.AddServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>AddServlet</servlet-name>
+      <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+      <servlet-name>TodoServelet</servlet-name>
+      <servlet-class>com.database.mysql.actions.TodoServelet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>TodoServelet</servlet-name>
+      <url-pattern>/todos</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>SaveTodoServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.SaveTodoServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>SaveTodoServlet</servlet-name>
+      <url-pattern>/savetodos</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>DeleteNoteServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.DeleteNoteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>DeleteNoteServlet</servlet-name>
+      <url-pattern>/deletenote</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+      <servlet-name>CheckNoteServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.CheckNoteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>CheckNoteServlet</servlet-name>
+      <url-pattern>/checknote</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+      <servlet-name>DeleteGroupServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.DeleteGroupServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>DeleteGroupServlet</servlet-name>
+      <url-pattern>/deletegroup</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+      <servlet-name>NewGroupServlet</servlet-name>
+      <servlet-class>com.database.mysql.actions.NewGroupServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>NewGroupServlet</servlet-name>
+      <url-pattern>/newgroup</url-pattern>
+  </servlet-mapping>
+  
+
+</web-app>
