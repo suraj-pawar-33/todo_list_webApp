@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 import com.database.mysql.actions.ActionUtilities;
 
-public class NewListServlet extends HttpServlet{
+public class NewListServlet extends HttpServlet {
 	/** Logger */
 	private static final Log LOGGER = LogFactory.getLog(NewListServlet.class);
 
@@ -23,11 +23,10 @@ public class NewListServlet extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)  
-	        throws ServletException, IOException {  
-	  
-		String group = request.getParameter("group");
-		int set = ActionUtilities.createNewGroup(group, (String) request.getSession().getAttribute("user"));
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int set = ActionUtilities.createNewGroup(request.getParameter("group"),
+				(String) request.getSession().getAttribute("user"));
 		JSONObject jo = new JSONObject();
 		String json = "";
 		try {
@@ -40,6 +39,6 @@ public class NewListServlet extends HttpServlet{
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(json);
-  
-	    }
+
+	}
 }

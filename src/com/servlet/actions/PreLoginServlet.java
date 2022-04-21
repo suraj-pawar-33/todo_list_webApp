@@ -8,44 +8,45 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import com.database.mysql.actions.ActionUtilities;
-
-public class LoginServlet extends HttpServlet {
+public class PreLoginServlet extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	static final String COOKIENAME = "todoListUser";
-	static final String USER = "user";
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("text/html");
 
-		String name = request.getParameter("username");
-		String pass = request.getParameter("userpass");
-
 		String destPage = "index.jsp";
 		
-		if (ActionUtilities.validateUser(name, pass)) {
-			request.getSession().setAttribute(USER, name);
-//			cookie for session
-			Cookie cookie = new Cookie(COOKIENAME, name);
-//			72 hrs 
-			cookie.setMaxAge(72 * 60 * 60);
-			response.addCookie(cookie);
+		Cookie[] cookies = request.getCookies();
+		Cookie todoListUser = getUserCookie(cookies);
+		if (todoListUser != null) {
+			request.getSession().setAttribute(LoginServlet.USER, todoListUser.getValue());
 			destPage = "todolist.html";
+			request.setAttribute("message", "AGE : " + todoListUser.getMaxAge());
 		} else {
-			request.setAttribute("message", "Invalid email/password");
+			request.setAttribute("message", "No saved data found.");
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(destPage);
 		rd.forward(request, response);
 
+	}
+
+	private Cookie getUserCookie(Cookie[] cookies) {
+		if (ArrayUtils.isNotEmpty(cookies)) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals(LoginServlet.COOKIENAME)) {
+					return cookie;
+				}
+			}
+		}
+		return null;
 	}
 }
