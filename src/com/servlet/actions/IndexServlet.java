@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-public class PreLoginServlet extends HttpServlet {
+public class IndexServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -22,7 +22,7 @@ public class PreLoginServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 
-		String destPage = "index.jsp";
+		String destPage = "login.jsp";
 		
 		Cookie[] cookies = request.getCookies();
 		Cookie todoListUser = getUserCookie(cookies);

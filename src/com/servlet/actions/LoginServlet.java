@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 		String name = request.getParameter("username");
 		String pass = request.getParameter("userpass");
 
-		String destPage = "index.jsp";
+		String destPage = "login.jsp";
 		
 		if (ActionUtilities.validateUser(name, pass)) {
 			request.getSession().setAttribute(USER, name);
