@@ -28,7 +28,7 @@ public class CheckNoteServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int set = ActionUtilities.checkNote(request.getParameter("group"), request.getParameter("note"),
-				request.getParameter("checked"));
+				request.getParameter("checked"), (String) request.getSession().getAttribute(LoginServlet.USER));
 
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");

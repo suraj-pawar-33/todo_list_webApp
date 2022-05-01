@@ -21,9 +21,8 @@ public class DeleteNoteServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String group = request.getParameter("group");
-		String note = request.getParameter("note");
-		int set = ActionUtilities.deleteNote(group, note);
+		int set = ActionUtilities.deleteNote(request.getParameter("group"), request.getParameter("note"),
+				(String) request.getSession().getAttribute(LoginServlet.USER));
 
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");

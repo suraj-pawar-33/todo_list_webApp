@@ -28,10 +28,10 @@ public class GetListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		JSONObject jo = new JSONObject();
-		ResultSet set = ActionUtilities.getGroupNames((String) req.getSession().getAttribute("user"));
+		ResultSet set = ActionUtilities.getGroupNames((String) request.getSession().getAttribute(LoginServlet.USER));
 		if (set != null) {
 
 			try {

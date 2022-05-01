@@ -32,9 +32,10 @@ public class SaveTodoServlet extends HttpServlet{
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 	        throws ServletException, IOException {  
-		
-		int set = ActionUtilities.saveNote(request.getParameter("group"), request.getParameter("note"));
-				
+
+		int set = ActionUtilities.saveNote(request.getParameter("group"), request.getParameter("note"),
+				(String) request.getSession().getAttribute(LoginServlet.USER));
+	
 		JSONObject jo = new JSONObject();
 		String json = "";
 		try {

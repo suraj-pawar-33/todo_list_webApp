@@ -34,7 +34,7 @@ public class TodoServelet extends HttpServlet{
 	  
 		String groupName = request.getParameter("group");
 		JSONArray jarray = new JSONArray();
-		ResultSet set = ActionUtilities.getGroupNotes(groupName);
+		ResultSet set = ActionUtilities.getGroupNotes(groupName, (String) request.getSession().getAttribute(LoginServlet.USER));
 		try {
 			while (set.next()) {
 				JSONObject jo = new JSONObject();

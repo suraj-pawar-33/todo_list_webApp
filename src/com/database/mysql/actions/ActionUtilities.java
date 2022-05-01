@@ -52,13 +52,16 @@ public class ActionUtilities {
 		return resultSet;
 	}
 
-	public static ResultSet getGroupNotes(String groupName) {
+	public static ResultSet getGroupNotes(String groupName, String username) {
 		StringBuilder sqlQuery = new StringBuilder();
 		sqlQuery.append("SELECT todo.todo_note, todo.selected");
 		sqlQuery.append(" FROM todo");
 		sqlQuery.append(" INNER JOIN list ON todo.list_key=list.list_key");
+		sqlQuery.append(" INNER JOIN service_users ON list.user_key=service_users.user_key");
 		sqlQuery.append(" WHERE list.list_name= '");
 		sqlQuery.append(groupName);
+		sqlQuery.append("' AND service_users.user_name='");
+		sqlQuery.append(username);
 		sqlQuery.append("' AND todo.status=0;");
 		ResultSet resultSet = null;
 		try {
@@ -73,10 +76,10 @@ public class ActionUtilities {
 		return resultSet;
 	}
 
-	public static int saveNote(String group, String note) {
+	public static int saveNote(String group, String note, String username) {
 		StringBuilder sqlQuery = new StringBuilder();
 
-		String listKey = getListKey(group);
+		String listKey = getListKey(group, username);
 		sqlQuery.append("INSERT INTO todo (todo_note, status, list_key)");
 		sqlQuery.append(" VALUES ('");
 		sqlQuery.append(note);
@@ -101,11 +104,14 @@ public class ActionUtilities {
 		return resultSet == 0 ? 0 : 1;
 	}
 
-	private static String getListKey(String group) {
+	private static String getListKey(String group, String username) {
 		StringBuilder sqlQuery = new StringBuilder();
 		sqlQuery.append("select list_key from list");
+		sqlQuery.append(" INNER JOIN service_users ON list.user_key=service_users.user_key");
 		sqlQuery.append(" where list_name ='");
 		sqlQuery.append(group);
+		sqlQuery.append("' AND service_users.user_name='");
+		sqlQuery.append(username);
 		sqlQuery.append("';");
 		ResultSet resultSet = null;
 		try {
@@ -124,10 +130,10 @@ public class ActionUtilities {
 		return null;
 	}
 
-	public static int deleteNote(String group, String note) {
+	public static int deleteNote(String group, String note, String username) {
 		StringBuilder sqlQuery = new StringBuilder();
 
-		String listKey = getListKey(group);
+		String listKey = getListKey(group, username);
 		sqlQuery.append("UPDATE todo");
 		sqlQuery.append(" SET status = B'1'");
 		sqlQuery.append(" WHERE todo_note = '");
@@ -153,10 +159,10 @@ public class ActionUtilities {
 		return resultSet == 0 ? 0 : 1;
 	}
 
-	public static int checkNote(String group, String note, String isChecked) {
+	public static int checkNote(String group, String note, String isChecked, String username) {
 		StringBuilder sqlQuery = new StringBuilder();
 
-		String listKey = getListKey(group);
+		String listKey = getListKey(group, username);
 		sqlQuery.append("UPDATE todo");
 		sqlQuery.append(" SET selected =");
 		sqlQuery.append("y".equals(isChecked) ? "B'1'" : 0);

@@ -45,7 +45,7 @@ public class SqlConstants {
 	public static void closeConnection() {
 		try {
 			connection.close();
-		} catch (SQLException e) {
+		} catch (SQLException  | NullPointerException e) {
 			System.out.println(e + " ERROR in closeConnection()");
 			LOGGER.error(e.getLocalizedMessage());
 		}
